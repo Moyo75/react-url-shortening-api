@@ -1,0 +1,77 @@
+.header {
+  width: 100%;
+
+  nav {
+    padding-top: 2.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 1051px;
+
+    @include breakpoint-up(small) {
+      padding-top: 3rem;
+    }
+  }
+
+  &__logo {
+    img {
+      width: 120px;
+      height: 33px;
+    }
+  }
+
+  .list {
+    margin-top: -4px;
+  }
+
+  .left-nav ul {
+    list-style: none;
+    li {
+      margin-left: 1.5rem;
+      color: $grayishViolet;
+      font-size: 16px;
+      font-weight: 800;
+    }
+  }
+
+  .hide-for-mobile {
+    @include breakpoint-down(small) {
+      display: none;
+    }
+  }
+
+  .hide-for-desktop {
+    @include breakpoint-up(small) {
+      display: none;
+    }
+  }
+
+  .button__container a {
+    text-decoration: none;
+  }
+
+  .menu-button {
+    position: relative;
+    cursor: pointer;
+
+    .menu-button__hamburger {
+      width: 24px;
+      height: 3px;
+      background-color: $grayishViolet;
+    }
+
+    .menu-button__hamburger::before,
+    .menu-button__hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background-color: $grayishViolet;
+    }
+    .menu-button__hamburger::before {
+      transform: translateY(-8px);
+    }
+    .menu-button__hamburger::after {
+      transform: translateY(8px);
+    }
+  }
+}
