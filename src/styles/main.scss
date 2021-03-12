@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
+@import './animations';
 @import './variables';
 @import './mixins';
 @import './globals';
-@import './header';
+@import 'header';
+@import './hero';
 @import './helpers';
+@import './footer';
+@import './typography';

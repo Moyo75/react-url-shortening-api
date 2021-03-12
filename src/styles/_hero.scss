@@ -1,0 +1,44 @@
+.hero {
+  &__image {
+    img {
+      height: 20.4375rem;
+      padding-left: 1.5625rem;
+      padding-top: 1.125rem;
+      width: 27.9rem;
+    }
+  }
+
+  &__texts {
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: $veryDarkBlue;
+      margin-top: 2.2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #96959d;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      text-decoration: none;
+      background-color: $cyan;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: $font-weight-heavy;
+      padding: 1rem 2rem;
+      text-transform: capitalize;
+      border-radius: 30px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

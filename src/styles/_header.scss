@@ -1,14 +1,18 @@
 .header {
-  width: 100%;
-
   nav {
-    padding-top: 2.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    width: 1051px;
+    padding-top: 2.3rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
 
     @include breakpoint-up(small) {
-      padding-top: 3rem;
+      padding-top: 4rem;
+      padding-left: 8.5rem;
+      padding-right: 8.5rem;
+    }
+
+    @include breakpoint-between(670px, 1000px) {
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
     }
   }
 
@@ -19,17 +23,27 @@
     }
   }
 
-  .list {
-    margin-top: -4px;
-  }
+  .header__links {
+    margin-top: -12.5px;
+    width: 74%;
 
-  .left-nav ul {
-    list-style: none;
-    li {
-      margin-left: 1.5rem;
-      color: $grayishViolet;
-      font-size: 16px;
-      font-weight: 800;
+    ul {
+      list-style: none;
+
+      li {
+        cursor: pointer;
+        color: $grayishViolet;
+        font-size: 1rem;
+        font-weight: 900;
+
+        &:not(:last-child) {
+          margin-right: 1.5rem;
+        }
+
+        &:hover {
+          color: $darkViolet;
+        }
+      }
     }
   }
 
@@ -45,11 +59,39 @@
     }
   }
 
-  .button__container a {
+  a {
     text-decoration: none;
   }
 
+  .sign-up {
+    background-color: $cyan;
+    padding: 0.6rem 1.5rem;
+    border-radius: 1.25rem;
+    color: #fff;
+    font-weight: $font-weight-heavy;
+    margin-left: 1rem;
+    margin-top: -7px;
+    width: 67px;
+    text-align: center;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .login {
+    color: $grayishViolet;
+    font-size: 1rem;
+    font-weight: $font-weight-heavy;
+    margin-right: 1rem;
+
+    &:hover {
+      color: $darkViolet;
+    }
+  }
+
   .menu-button {
+    margin-top: 0.9375rem;
     position: relative;
     cursor: pointer;
 
@@ -73,5 +115,41 @@
     .menu-button__hamburger::after {
       transform: translateY(8px);
     }
+  }
+
+  &__menu {
+    position: absolute;
+    background-color: $darkViolet;
+    width: calc(100% - (3rem)); //312/360
+    left: 50%;
+    top: 5.7rem;
+    transform: translateX(-50%);
+    padding-top: 1.925rem;
+    padding-bottom: 0.625rem;
+    border-radius: 10px;
+
+    .divider {
+      border: 1px solid $grayishViolet;
+      width: 85%;
+      opacity: 0.15;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      text-decoration: none;
+      margin-bottom: 2rem;
+      color: #fff;
+      font-size: $font-size;
+      font-weight: $font-weight-heavy;
+    }
+    .sign__up {
+      background-color: $cyan;
+      padding: 0.625rem 6.1625rem;
+      border-radius: 20px;
+      text-transform: capitalize;
+    }
+  }
+  .hide {
+    visibility: hidden;
   }
 }

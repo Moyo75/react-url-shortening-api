@@ -1,50 +1,55 @@
 import React from 'react';
 import logo from '../images/logo.svg';
+
 import '../styles/main.scss';
+import '../utils/script';
 
 const Header = () => {
   return (
-    <header className={'header flex flex__jc-c'}>
+    <header className={'header'}>
       <nav
         role={'navigation'}
         aria-label={'Main'}
-        className={'flex flex__jc-sb flex__ai-c'}
+        className={'container flex flex__jc-sb flex__ai-fs'}
       >
-        <div className='left-nav flex flex__ai-c'>
-          <a href='/' className={'header__logo'}>
-            <img src={logo} alt={'logo'} />
-          </a>
-          <ul className={'flex list hide-for-mobile'}>
-            <li>Features</li>
-            <li>Pricing</li>
-            <li>Resources</li>
-          </ul>
-        </div>
+        <a href='/' className={'header__logo'}>
+          <img src={logo} alt={'logo'} />
+        </a>
 
-        {/* <div
+        <div
           className={
             'header__links flex flex__jc-sb flex__ai-c hide-for-mobile'
           }
         >
-          <ul className={'flex'}>
+          <ul className={'header__list flex flex__jc-sb flex__ai-fs'}>
             <li>Features</li>
             <li>Pricing</li>
             <li>Resources</li>
           </ul>
-          <div className='button__container'>
-            <a href='/'>Login</a>
-            <a href='/'>Sign up</a>
-          </div>
-        </div> */}
-        <div className='button__container hide-for-mobile'>
-          <a href='/'>Login</a>
-          <a href='/'>Sign up</a>
+          <a href='/' className={'login'}>
+            Login
+          </a>
         </div>
+
+        <a href='/' className={'sign-up hide-for-mobile'}>
+          Sign up
+        </a>
 
         <div className='menu-button flex flex__jc-c flex__ai-c hide-for-desktop'>
           <div className='menu-button__hamburger'></div>
         </div>
       </nav>
+
+      <div className='header__menu hide flex flex__column flex__ai-c'>
+        <a href='/'>Features</a>
+        <a href='/'>Pricing</a>
+        <a href='/'>Resources</a>
+        <div className='divider'></div>
+        <a href='/'>Login</a>
+        <a href='/' className={'sign__up'}>
+          Sign up
+        </a>
+      </div>
     </header>
   );
 };

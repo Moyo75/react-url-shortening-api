@@ -1,6 +1,8 @@
 .flex {
   display: flex;
-
+  &__column {
+    flex-direction: column;
+  }
   &__jc-sb {
     justify-content: space-between;
   }
@@ -19,4 +21,9 @@
   &__ai-fe {
     align-items: flex-end;
   }
+}
+
+.container {
+  max-width: 65.6875rem;
+  margin: 0 auto;
 }
