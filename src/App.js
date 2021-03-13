@@ -1,3 +1,4 @@
+import FormStats from './components/FormStats';
 import Header from './components/Header';
 import Hero from './components/Hero';
 
@@ -6,6 +7,7 @@ function App() {
     <div>
       <Header />
       <Hero />
+      <FormStats />
     </div>
   );
 }

@@ -4,13 +4,20 @@
     padding-left: 1.3rem;
     padding-right: 1.3rem;
 
-    @include breakpoint-up(small) {
+    @include breakpoint-between(601px, 799px) {
       padding-top: 4rem;
-      padding-left: 8.5rem;
-      padding-right: 8.5rem;
+      padding-left: 5.5rem;
+      padding-right: 5.5rem;
     }
 
-    @include breakpoint-between(670px, 1000px) {
+    @include breakpoint-between(376px, 600px) {
+      padding-top: 4rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    @include breakpoint-between(800px, 1000px) {
+      padding-top: 4rem;
       padding-left: 3.5rem;
       padding-right: 3.5rem;
     }
@@ -48,13 +55,13 @@
   }
 
   .hide-for-mobile {
-    @include breakpoint-down(small) {
+    @include breakpoint-down(medium) {
       display: none;
     }
   }
 
   .hide-for-desktop {
-    @include breakpoint-up(small) {
+    @include breakpoint-up(medium) {
       display: none;
     }
   }
@@ -71,7 +78,7 @@
     font-weight: $font-weight-heavy;
     margin-left: 1rem;
     margin-top: -7px;
-    width: 67px;
+    width: 75px;
     text-align: center;
 
     &:hover {

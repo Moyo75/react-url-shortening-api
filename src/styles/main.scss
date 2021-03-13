@@ -3,9 +3,10 @@
 @import './animations';
 @import './variables';
 @import './mixins';
-@import './globals';
+@import 'globals';
 @import 'header';
-@import './hero';
+@import 'hero';
+@import './formstats';
 @import './helpers';
 @import './footer';
 @import './typography';

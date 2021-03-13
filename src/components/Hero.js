@@ -6,8 +6,8 @@ import '../styles/main.scss';
 const Hero = () => {
   return (
     <section className={'hero'}>
-      <div className='container'>
-        <div className='hero__image'>
+      <div className='container hero__container flex flex__column flex__jc-c'>
+        <div className='hero__image flex flex__jc-c'>
           <img src={illustrationWorking} alt='Illustration Working' />
         </div>
         <div className='hero__texts flex flex__column flex__ai-c'>

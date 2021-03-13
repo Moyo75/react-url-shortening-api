@@ -10,6 +10,20 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  overflow-x: hidden;
+}
+
 h1,
 h2 {
   margin: 0;
