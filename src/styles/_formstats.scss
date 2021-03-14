@@ -1,6 +1,10 @@
 .form__stats {
   background-color: #f0f1f6;
 
+  .form__links__container {
+    width: 100%;
+  }
+
   .form__container {
     background-color: $darkViolet;
     background-image: url('../images/bg-shorten-mobile.svg');
@@ -10,7 +14,7 @@
     border-radius: 15px;
     width: 73.78%;
     margin-top: -5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     .form__shorten {
       input {
@@ -49,7 +53,8 @@
   .link__container {
     background-color: #fff;
     border-radius: 10px;
-    width: 86.78%;
+    width: 87.78%;
+    margin-bottom: 1rem;
 
     .initial__link {
       margin: 14px 0;
@@ -76,6 +81,72 @@
       border: none;
       font-size: 1rem;
       margin-bottom: 1rem;
+    }
+  }
+
+  .stats__text {
+    padding: 0 7px;
+    margin-top: 4.5rem;
+    margin-bottom: 5rem;
+    h1 {
+      font-size: 1.6rem;
+      color: $darkViolet;
+    }
+    p {
+      text-align: center;
+      color: $grayishViolet;
+      line-height: 1.7;
+    }
+  }
+
+  .feature__cards-list {
+    .features__item {
+      background-color: #fff;
+      margin-left: 23px;
+      margin-right: 23px;
+      border-radius: 8px;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 6rem;
+
+      &:first-child {
+        padding-bottom: 10px;
+      }
+
+      &:not(:first-child) > p {
+        margin-bottom: -20px;
+      }
+
+      &:not(:first-child)::after {
+        content: '';
+        position: relative;
+        width: 8px;
+        height: 51px;
+        top: -316px;
+        background-color: $cyan;
+      }
+
+      &-image {
+        background-color: $darkViolet;
+        padding: 17px 21px;
+        border-radius: 50px;
+        margin-top: -44px;
+
+        img {
+          width: 41px;
+          height: 43px;
+        }
+      }
+      h1 {
+        color: $darkViolet;
+        margin-top: 20px;
+      }
+
+      p {
+        text-align: center;
+        color: $grayishViolet;
+        line-height: 1.7;
+      }
     }
   }
 }

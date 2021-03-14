@@ -1,0 +1,28 @@
+.boost__links {
+  background-color: $darkViolet;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-image: url('../images/bg-boost-mobile.svg');
+  background-position: -16px -13px;
+
+  h1 {
+    color: #fff;
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    background-color: $cyan;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: $font-weight-heavy;
+    padding: 1rem 2.5rem;
+    text-transform: capitalize;
+    border-radius: 30px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

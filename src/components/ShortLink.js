@@ -6,7 +6,7 @@ const ShortLink = () => {
       <p className={'initial__link'}>https://www.frontendmentor.io</p>
       <div className='link__seperator'></div>
       <p className={'shortened__link'}>https://reLink/k4lyk</p>
-      <button>copy!</button>
+      <button>Copy</button>
     </div>
   );
 };
