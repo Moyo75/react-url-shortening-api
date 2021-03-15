@@ -19,7 +19,7 @@ const cardsDataList = [
   },
   {
     imgSource: fullyCustomizable,
-    headerText: 'Detailed Records',
+    headerText: 'Fully Customizable',
     description: `Improve brand awareness and content discovrability through customizable links, superchanging audience engagement.`
   }
 ];
@@ -31,6 +31,7 @@ const FeatureCardList = () => {
     >
       {cardsDataList.map(({ imgSource, headerText, description }) => (
         <FeatureCard
+          key={headerText}
           imgSource={imgSource}
           headerText={headerText}
           description={description}

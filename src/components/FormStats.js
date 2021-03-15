@@ -4,7 +4,6 @@ import ShortenFormAndLinks from './ShortenFormAndLinks';
 import FormStatsText from './FormStatsText';
 
 import '../styles/main.scss';
-// import FeatureCard from './FeatureCard';
 import FeatureCardList from './FeatureCardList';
 
 const FormStats = () => {

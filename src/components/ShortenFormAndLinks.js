@@ -12,7 +12,9 @@ const ShortenFormAndLinks = () => {
         <form className={'form__shorten flex flex__column'}>
           <input type='text' placeholder={'Shorten a link here...'} />
           <p className={'validator__message'}>Please add a link</p>
-          <button type='submit'>shorten it!</button>
+          <button aria-label={'Shortened link'} type='submit'>
+            shorten it!
+          </button>
         </form>
       </div>
       <ShortLink />

@@ -26,17 +26,24 @@ const Header = () => {
             <li>Pricing</li>
             <li>Resources</li>
           </ul>
-          <a href='/' className={'login'}>
+          <a href='/' aria-label={'Go to login page'} className={'login'}>
             Login
           </a>
         </div>
 
-        <a href='/' className={'sign-up hide-for-mobile'}>
+        <a
+          href='/'
+          aria-label={'Go to sign up page'}
+          className={'sign-up hide-for-mobile'}
+        >
           Sign up
         </a>
 
         <div className='menu-button flex flex__jc-c flex__ai-c hide-for-desktop'>
-          <div className='menu-button__hamburger'></div>
+          <div
+            aria-label={'Toggle the menu button'}
+            className='menu-button__hamburger'
+          ></div>
         </div>
       </nav>
 
