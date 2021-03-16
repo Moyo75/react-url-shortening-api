@@ -42,6 +42,16 @@
   }
 
   &__texts {
+    @include breakpoint-up(medium) {
+      margin-top: 2rem;
+      text-align: left;
+      justify-content: left;
+      align-items: flex-start;
+    }
+
+    @include breakpoint-up(large) {
+      max-width: 43rem;
+    }
     h1 {
       font-size: 2.5rem;
       text-align: center;
@@ -50,6 +60,17 @@
       letter-spacing: -2px;
       margin-bottom: 10px;
       // margin-top: 2.2rem;
+
+      @include breakpoint-up(medium) {
+        margin-left: 1.7rem;
+        margin-right: 1.7rem;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: 5rem;
+        text-align: left;
+        margin-left: -4px;
+      }
     }
 
     p {
@@ -61,6 +82,14 @@
       padding-right: 1rem;
       line-height: 1.7;
       margin-bottom: 2rem;
+
+      @include breakpoint-up(medium) {
+        font-size: 1.4rem;
+        text-align: left;
+      }
+      @include breakpoint-up(medium) {
+        margin-left: -16px;
+      }
     }
 
     a {
@@ -75,6 +104,10 @@
 
       &:hover {
         opacity: 0.8;
+      }
+
+      @include breakpoint-up(medium) {
+        text-align: left;
       }
     }
   }

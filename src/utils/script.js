@@ -23,7 +23,7 @@ window.onload = function () {
 
     const selection = window.getSelection();
     const range = new Range();
-    console.log(range);
+    // console.log(range);
     range.selectNodeContents(shortenedLink);
 
     selection.removeAllRanges();
@@ -46,10 +46,13 @@ window.onload = function () {
         copyButton.textContent = "Can't copy, hit Ctrl+C!";
       }, 2000);
     }
-
-    // console.log(shortenedLink);
   }
 
   menuButton.addEventListener('click', handleToggleMenu);
   copyButton.addEventListener('click', handleCopyButton);
 };
+// const urlRegex = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
+const urlRegex = new RegExp(
+  /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s/?.#-]+\.?)+(\/[^\s]*)?$/i
+);
+export { urlRegex };

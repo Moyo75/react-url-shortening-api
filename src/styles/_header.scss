@@ -16,7 +16,7 @@
       padding-right: 3rem;
     }
 
-    @include breakpoint-between(800px, 1000px) {
+    @include breakpoint-between(800px, 1600px) {
       padding-top: 4rem;
       padding-left: 3.5rem;
       padding-right: 3.5rem;
@@ -135,6 +135,10 @@
     padding-top: 1.925rem;
     padding-bottom: 0.625rem;
     border-radius: 10px;
+
+    @include breakpoint-between(376px, 600px) {
+      margin-top: 1.55rem;
+    }
 
     .divider {
       border: 1px solid $grayishViolet;
