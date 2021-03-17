@@ -3,24 +3,46 @@ import ShortLink from './ShortLink';
 
 import { urlRegex } from '../utils/script';
 
-// const endPoint = https://api.shrtco.de/v2/info?code=example
+// https://api.shrtco.de/v2/
 
 const ShortenFormAndLinks = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  // const [fetchedData, setFetchedData] = useState(null);
   const [url, setUrl] = useState('');
 
   function handleUrlInputChange(event) {
-    event.persist();
     setUrl(event.target.value);
+  }
+
+  function handleErrorMessage() {
+    if (!urlRegex.test(url)) {
+      setShowErrorMessage(true);
+    } else {
+      setShowErrorMessage(false);
+    }
+  }
+
+  async function postUrl() {
+    fetch(`https://api.shrtco.de/v2/shorten?url=${url}`, {
+      mode: 'no-cors',
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => console.log('Success: ', data))
+      .catch((error) => console.log('Error: ', error));
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(url);
-    if (urlRegex.test(url)) {
-      setShowErrorMessage(false);
-    } else {
-      setShowErrorMessage(true);
+    handleErrorMessage();
+    if (showErrorMessage === false) {
+      console.log(url);
+      postUrl();
+      setUrl('');
     }
   }
 
@@ -45,7 +67,7 @@ const ShortenFormAndLinks = () => {
           />
           {showErrorMessage && (
             <span className={'validator__message'}>
-              Please add a vaild link.
+              Please add a valid link.
             </span>
           )}
           <button

@@ -26,15 +26,16 @@
       margin-top: -1.125rem;
       // width: 27.9rem;
       // margin-left: auto;
-
+      
       // height: 19.4375rem;
       // margin-right: -135px;
+      
+      @include breakpoint-up(large) {
+        height: 27.4375rem;
+        width: 664px;
+        margin-right: -227px;
 
-      // @include breakpoint-down(small) {
-      //   height: 21.4375rem;
-      //   padding-left: 1.5625rem;
-      //   padding-top: 1.125rem;
-      // }
+      }
 
       // @include breakpoint-down(small) {
       // }
@@ -42,16 +43,17 @@
   }
 
   &__texts {
-    @include breakpoint-up(medium) {
+    align-items: center;
+    @include breakpoint-down(medium) {
       margin-top: 2rem;
-      text-align: left;
-      justify-content: left;
-      align-items: flex-start;
     }
-
+    
     @include breakpoint-up(large) {
+      align-items: unset;
+      margin-top: 3rem;
       max-width: 43rem;
     }
+
     h1 {
       font-size: 2.5rem;
       text-align: center;
@@ -86,13 +88,15 @@
       @include breakpoint-up(medium) {
         font-size: 1.4rem;
         text-align: left;
+        margin-left: 50px;
       }
-      @include breakpoint-up(medium) {
-        margin-left: -16px;
+
+      @include breakpoint-up(large) {
+        margin-left: -15px;
       }
     }
 
-    a {
+    .hero__cta {
       text-decoration: none;
       background-color: $cyan;
       color: #fff;
@@ -101,13 +105,14 @@
       padding: 1rem 2rem;
       text-transform: capitalize;
       border-radius: 30px;
-
+      
       &:hover {
         opacity: 0.8;
       }
-
+      
       @include breakpoint-up(medium) {
         text-align: left;
+        width: 17%;
       }
     }
   }
