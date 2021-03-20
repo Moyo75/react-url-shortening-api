@@ -1,35 +1,101 @@
-.footer {
+.footer__section {
   background-color: $veryDarkViolet;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-
-  h1 {
-    font-size: 1.9rem;
-    color: #fff;
-    margin-bottom: 1.5rem;
+  @include breakpoint-up(medium) {
+    padding-top: 2rem;
   }
 
-  .footer__list-set {
-    h3 {
-      color: #fcfafd;
-      font-size: 0.9rem;
+  .footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    @include breakpoint-up(medium) {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
     }
-    ul {
-      list-style: none;
-      color: #7c7a7f;
-      padding-left: 0;
-      li {
-        font-size: 1rem;
-        text-align: center;
+
+    h1 {
+      font-size: 1.9rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .first__list {
+      @include breakpoint-up(medium) {
+        margin-left: 3rem;
+      }
+    }
+    .second__list {
+      @include breakpoint-up(medium) {
+        margin-left: 0.7rem;
+      }
+    }
+
+    .footer__list-set:last-child {
+      margin-right: 1rem;
+    }
+    // .third__list {
+    //   @include breakpoint-up(medium) {
+    //     margin-right: 1rem;
+    //   }
+    // }
+
+    .footer__list-set {
+      h3 {
+        color: #fcfafd;
+        font-size: 0.9rem;
+
+        @include breakpoint-up(medium) {
+          margin-top: 0rem;
+        }
+      }
+      ul {
+        list-style: none;
+        color: #b8b6b9;
+        padding-left: 0;
+        li {
+          font-size: 1rem;
+          text-align: center;
+
+          &:hover {
+            color: $cyan;
+            cursor: pointer;
+          }
+
+          @include breakpoint-up(medium) {
+            text-align: left;
+          }
+        }
       }
 
       li:not(:last-child) {
         margin-bottom: 1rem;
       }
     }
-  }
-  .icon__list {
-    width: 60%;
-    margin-top: 2rem;
+    .icon__list {
+      width: 60%;
+      margin-top: 2rem;
+
+      img {
+        @include breakpoint-up(medium) {
+          &:hover {
+            cursor: pointer;
+            filter: invert(64%) sepia(97%) saturate(337%) hue-rotate(128deg)
+              brightness(90%) contrast(95%);
+          }
+        }
+
+        &:not(:last-child) {
+          @include breakpoint-up(medium) {
+            margin-right: 1.3rem;
+          }
+        }
+      }
+
+      @include breakpoint-up(medium) {
+        margin-top: 0;
+        width: 0;
+      }
+    }
   }
 }

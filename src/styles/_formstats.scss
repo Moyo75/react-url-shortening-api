@@ -247,20 +247,23 @@
         top: -316px;
         background-color: $cyan;
 
-        @include breakpoint-down(280px) {
-          top: -347px;
+        @include breakpoint-down(292px) {
+          top: -401px;
         }
-        @include breakpoint-between(312px, 319px) {
+        @include breakpoint-between(293px, 311px) {
           top: -374px;
         }
-        @include breakpoint-between(350px, 383px) {
-          top: -289px;
+        @include breakpoint-between(312px, 320px) {
+          top: -343px;
+        }
+        @include breakpoint-between(350px, 386px) {
+          top: -316px;
         }
         @include breakpoint-between(387px, 401px) {
           top: -289px;
         }
         @include breakpoint-between(401px, 436px) {
-          top: -262px;
+          top: -289px;
         }
         @include breakpoint-between(437px, 445px) {
           top: -262px;
@@ -286,7 +289,10 @@
       }
 
       &:nth-child(2)::after {
-        @include breakpoint-between(384px, 388px) {
+        @include breakpoint-between(384px, 386px) {
+          top: -316px;
+        }
+        @include breakpoint-between(387px, 388px) {
           top: -289px;
         }
         @include breakpoint-between(436px, 447px) {
@@ -306,7 +312,7 @@
             top: -347px;
           }
           @include breakpoint-between(339px, 383px) {
-            top: -290px;
+            top: -316px;
           }
           @include breakpoint-between(384px, 386px) {
             top: -289px;
@@ -315,7 +321,7 @@
             top: -262px;
           }
           @include breakpoint-between(446px, 599px) {
-            top: -235px;
+            top: -262px;
           }
           @include breakpoint-between(600px, 628px) {
             top: -235px;
