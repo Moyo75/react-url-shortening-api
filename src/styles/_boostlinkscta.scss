@@ -5,10 +5,22 @@
   background-image: url('../images/bg-boost-mobile.svg');
   background-position: -16px -13px;
 
+  @include breakpoint-up(medium) {
+    background-image: url('../images/bg-boost-desktop.svg');
+    background-position: -16px 2px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   h1 {
     color: #fff;
     font-size: 1.7rem;
     margin-bottom: 1.5rem;
+
+    @include breakpoint-up(medium) {
+      margin-bottom: 1.3rem;
+      font-size: 2.3rem;
+    }
   }
 
   a {
@@ -22,7 +34,7 @@
     border-radius: 30px;
 
     &:hover {
-      opacity: 0.8;
+      filter: brightness(1.1);
     }
   }
 }
