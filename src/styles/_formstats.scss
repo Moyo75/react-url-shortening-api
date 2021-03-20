@@ -10,17 +10,36 @@
     background-image: url('../images/bg-shorten-mobile.svg');
     background-repeat: no-repeat;
     background-position: top right;
-    // padding: 1.5rem;
     border-radius: 15px;
     width: 85.78%;
     margin-top: -5rem;
     margin-bottom: 1.5rem;
 
+    @include breakpoint-up(500px) {
+      max-width: 77.78%;
+    }
     @include breakpoint-up(medium) {
-      width: 70.78%;
+      background-image: url('../images/bg-shorten-desktop.svg');
+      max-width: 85.78%;
+    }
+    @include breakpoint-between(xmedium, 1000px) {
+      max-width: 88%;
+    }
+    @include breakpoint-up(1001px) {
+      max-width: 65rem;
+    }
+
+    .form__error__container {
+      @include breakpoint-up(medium) {
+        flex-grow: 2;
+      }
     }
 
     .form__shorten {
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+        justify-content: space-around !important;
+      }
       input {
         outline: none;
         padding: 0.8rem 4.7rem 0.8rem 0.7rem;
@@ -28,13 +47,34 @@
         border: none;
         margin: 23px 25px 0px 25px;
         font-size: 1.1rem;
-        //   margin-bottom: 1rem;
 
         &::placeholder {
           color: #96959d;
           font-size: 0.99rem;
           font-weight: $font-weight-heavy;
-          //     letter-spacing: 1px;
+          opacity: 0.5;
+        }
+
+        @include breakpoint-up(medium) {
+          // width: 86%;
+          margin: 35px 22px 0px 34px;
+          padding: 0.8rem 1.4rem 0.8rem 1.4rem;
+        }
+
+        @include breakpoint-up(1000px) {
+          margin: 40px 22px 0px 40px;
+          // width: 88%;
+        }
+        @include breakpoint-up(1125px) {
+          margin: 50px 22px 0px 60px;
+        }
+      }
+
+      .error-case {
+        border: 3px solid $red;
+
+        &::placeholder {
+          color: $red;
         }
       }
 
@@ -45,9 +85,25 @@
         margin-top: 3px;
         // margin-bottom: 11px;
         font-size: 12px;
+
+        @include breakpoint-up(medium) {
+          margin-top: 2px;
+          margin-left: 31px;
+          font-size: 14px;
+        }
+
+        @include breakpoint-up(1000px) {
+          margin-top: 4px;
+          margin-left: 38px;
+        }
+
+        @include breakpoint-up(1125px) {
+          margin-top: 5px;
+          margin-left: 59px;
+        }
       }
 
-      button {
+      .shorten__button {
         cursor: pointer;
         text-transform: capitalize;
         background-color: $cyan;
@@ -61,7 +117,19 @@
         margin: 22px 25px 23px 25px;
 
         &:hover {
-          opacity: 0.9;
+          filter: brightness(1.05);
+        }
+
+        @include breakpoint-up(medium) {
+          margin: 35px 38px 35px 0px;
+          padding: 0.9rem 1.4rem;
+        }
+        @include breakpoint-up(1000px) {
+          margin: 40px 40px 40px 0px;
+          // padding: 0.8rem 2.1rem;
+        }
+        @include breakpoint-up(1125px) {
+          margin: 50px 60px 50px 0px;
         }
       }
     }
@@ -115,7 +183,7 @@
   }
 
   .stats__text {
-    padding: 0 7px;
+    max-width: 39rem;
     margin-top: 4.5rem;
     margin-bottom: 5rem;
     h1 {
@@ -132,12 +200,17 @@
       line-height: 1.7;
 
       @include breakpoint-up(medium) {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
       }
     }
   }
 
   .feature__cards-list {
+    @include breakpoint-up(1024px) {
+      margin-top: -6rem;
+      flex-direction: row;
+    }
+
     .features__item {
       background-color: #fff;
       margin-left: 23px;
@@ -146,7 +219,17 @@
       padding-left: 20px;
       padding-right: 20px;
       margin-bottom: 6rem;
-      max-width: 351px;
+
+      @include breakpoint-up(1024px) {
+        align-items: flex-start;
+        margin-right: 9px;
+        justify-content: start;
+        padding-left: 30px;
+        font-size: 15px;
+        text-align: left;
+        padding-bottom: 2rem;
+      }
+      // max-width: 351px;
 
       &:first-child {
         padding-bottom: 10px;
@@ -163,10 +246,57 @@
         height: 52px;
         top: -316px;
         background-color: $cyan;
+
+        @include breakpoint-between(350px, 383px) {
+          top: -289px;
+        }
+        @include breakpoint-between(387px, 401px) {
+          top: -289px;
+        }
+        @include breakpoint-between(401px, 445px) {
+          top: -262px;
+        }
+        @include breakpoint-between(446px, 477px) {
+          top: -262px;
+        }
+        @include breakpoint-between(478px, 561px) {
+          top: -262px;
+        }
+        @include breakpoint-between(562px, 1023px) {
+          top: -235px;
+        }
+        @include breakpoint-up(1024px) {
+          width: 32px;
+          height: 8px;
+          top: -81px;
+          right: 62px;
+        }
       }
+
+      &:nth-child(2) {
+        @include breakpoint-between(384px, 388px) {
+          top: -289px;
+        }
+        @include breakpoint-up(1024px) {
+          margin-top: 6rem;
+        }
+      }
+
       &:last-child {
-        @include breakpoint-between(20.625em, 20.8125rem) {
-          top: -300px;
+        &::after {
+          @include breakpoint-between(384px, 386px) {
+            top: -289px;
+          }
+          @include breakpoint-between(436px, 445px) {
+            top: -262px;
+          }
+          @include breakpoint-up(1024px) {
+            top: -121px;
+          }
+        }
+
+        @include breakpoint-up(1024px) {
+          margin-top: 11rem;
         }
       }
 
@@ -175,6 +305,10 @@
         padding: 17px 21px;
         border-radius: 50px;
         margin-top: -44px;
+
+        @include breakpoint-up(1024px) {
+          margin-bottom: 1.3rem;
+        }
 
         img {
           width: 41px;
@@ -190,6 +324,10 @@
         text-align: center;
         color: $grayishViolet;
         line-height: 1.7;
+
+        @include breakpoint-up(1024px) {
+          text-align: left;
+        }
       }
     }
   }

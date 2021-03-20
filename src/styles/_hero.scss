@@ -26,16 +26,39 @@
       margin-top: -1.125rem;
       // width: 27.9rem;
       // margin-left: auto;
-      
+
       // height: 19.4375rem;
       // margin-right: -135px;
-      
-      @include breakpoint-up(large) {
-        height: 27.4375rem;
-        width: 664px;
-        margin-right: -227px;
+      // @media (min-width: 720px) {
+      // }
 
+      @include breakpoint-up(xmedium) {
+        margin-right: -120px;
+        height: 22rem;
+        width: 519px;
       }
+
+      @include breakpoint-between(800px, 909px) {
+        margin-right: -133px;
+        height: 21.21875rem;
+        width: 493.5px;
+      }
+
+      @include breakpoint-between(1084px, 1240px) {
+        margin-right: -80px;
+      }
+
+      @include breakpoint-up(1241px) {
+        margin-right: -204px;
+        height: 27rem;
+        width: 665px;
+      }
+
+      // @include breakpoint-up(large) {
+      //   height: 27.4375rem;
+      //   width: 664px;
+      //   margin-right: -227px;
+      // }
 
       // @include breakpoint-down(small) {
       // }
@@ -44,12 +67,20 @@
 
   &__texts {
     align-items: center;
-    @include breakpoint-down(medium) {
+
+    @include breakpoint-up(medium) {
+      align-items: flex-start;
+      // background-color: red;
       margin-top: 2rem;
+      padding-left: 42px;
     }
-    
+    // @include breakpoint-up(720px) {
+    //   margin-top: 2rem;
+    //   padding-left: 42px;
+    //   align-items: flex-start;
+    // }
+
     @include breakpoint-up(large) {
-      align-items: unset;
       margin-top: 3rem;
       max-width: 43rem;
     }
@@ -63,16 +94,34 @@
       margin-bottom: 10px;
       // margin-top: 2.2rem;
 
-      @include breakpoint-up(medium) {
-        margin-left: 1.7rem;
-        margin-right: 1.7rem;
+      @media only screen and (min-width: 720px) {
+        // font-size: 3rem !important;
+        // margin-left: 1.7rem;
+
+        // margin-right: 1.7rem;
       }
 
-      @include breakpoint-up(large) {
-        font-size: 5rem;
+      @include breakpoint-up(medium) {
         text-align: left;
-        margin-left: -4px;
       }
+
+      @include breakpoint-between(800px, 909px) {
+        font-size: 3rem;
+      }
+
+      @include breakpoint-up(xmedium) {
+        font-size: 3.5rem;
+      }
+
+      @include breakpoint-up(1200px) {
+        font-size: 4.5rem;
+      }
+
+      // @include breakpoint-up(large) {
+      //   font-size: 5rem;
+      //   text-align: left;
+      //   margin-left: -4px;
+      // }
     }
 
     p {
@@ -86,17 +135,27 @@
       margin-bottom: 2rem;
 
       @include breakpoint-up(medium) {
-        font-size: 1.4rem;
+        // font-size: 1.4rem;
+        padding-left: 0;
+        padding-right: 0;
         text-align: left;
-        margin-left: 50px;
+        // margin-left: 50px;
       }
 
-      @include breakpoint-up(large) {
-        margin-left: -15px;
+      @include breakpoint-between(800px, 909px) {
+        font-size: 1.2rem;
+      }
+
+      @include breakpoint-up(xmedium) {
+        font-size: 1.3rem;
+      }
+
+      @include breakpoint-up(1200px) {
+        padding-right: 65px;
       }
     }
 
-    .hero__cta {
+    div .hero__cta {
       text-decoration: none;
       background-color: $cyan;
       color: #fff;
@@ -105,15 +164,19 @@
       padding: 1rem 2rem;
       text-transform: capitalize;
       border-radius: 30px;
-      
+
       &:hover {
         opacity: 0.8;
       }
-      
-      @include breakpoint-up(medium) {
-        text-align: left;
-        width: 17%;
-      }
+
+      // @include breakpoint-between(720px, 922px) {
+      //   width: 27% !important;
+      // }
+
+      // @include breakpoint-down(719px) {
+      //   text-align: left;
+      //   width: 17% !important;
+      // }
     }
   }
 }

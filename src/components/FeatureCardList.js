@@ -27,7 +27,9 @@ const cardsDataList = [
 const FeatureCardList = () => {
   return (
     <div
-      className={'feature__cards-list flex flex__column flex__jc-c flex__ai-c'}
+      className={
+        'container feature__cards-list flex flex__column flex__jc-c flex__ai-c'
+      }
     >
       {cardsDataList.map(({ imgSource, headerText, description }) => (
         <FeatureCard

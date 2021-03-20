@@ -3,12 +3,11 @@ import ShortLink from './ShortLink';
 
 import { urlRegex } from '../utils/script';
 
-// https://api.shrtco.de/v2/
-
 const ShortenFormAndLinks = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
-  // const [fetchedData, setFetchedData] = useState(null);
+  const [fetchedData, setFetchedData] = useState(null);
   const [url, setUrl] = useState('');
+  const endPoint = 'https://api.shrtco.de/v2/shorten';
 
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
@@ -22,19 +21,17 @@ const ShortenFormAndLinks = () => {
     }
   }
 
-  async function postUrl() {
-    fetch(`https://api.shrtco.de/v2/shorten?url=${url}`, {
-      mode: 'no-cors',
-      method: 'post',
-      headers: {
-        'Content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then((response) => response.json())
-      .then((data) => console.log('Success: ', data))
-      .catch((error) => console.log('Error: ', error));
-  }
+  const postUrl = async () => {
+    try {
+      const response = await fetch(`${endPoint}?url=${url}`);
+      const data = await response.json();
+
+      setFetchedData(data.result);
+      console.log(data.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -49,27 +46,29 @@ const ShortenFormAndLinks = () => {
   return (
     <div
       className={
-        'container form__links__container flex flex__column flex__jc-c flex__ai-c'
+        'form__links__container flex flex__column flex__jc-c flex__ai-c'
       }
     >
       <div className={'form__container'}>
         <form
-          className={'form__shorten flex flex__column'}
+          className={'form__shorten flex flex__column flex__jc-c'}
           onSubmit={handleSubmit}
         >
-          <input
-            required
-            type='text'
-            value={url}
-            className={'url__input'}
-            onChange={handleUrlInputChange}
-            placeholder={'Shorten a link here...'}
-          />
-          {showErrorMessage && (
-            <span className={'validator__message'}>
-              Please add a valid link.
-            </span>
-          )}
+          <div className={'form__error__container flex flex__column'}>
+            <input
+              required
+              type='text'
+              value={url}
+              onChange={handleUrlInputChange}
+              placeholder={'Shorten a link here...'}
+              className={showErrorMessage ? 'error-case' : null}
+            />
+            {showErrorMessage && (
+              <span className={'validator__message'}>
+                Please add a valid link.
+              </span>
+            )}
+          </div>
           <button
             aria-label={'Shorten link'}
             type='submit'
@@ -79,7 +78,7 @@ const ShortenFormAndLinks = () => {
           </button>
         </form>
       </div>
-      <ShortLink />
+      {fetchedData && <ShortLink fetchedData={fetchedData} />}
     </div>
   );
 };

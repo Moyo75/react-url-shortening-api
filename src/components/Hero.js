@@ -16,9 +16,11 @@ const Hero = () => {
             Build your brand's recognition and get detailed insights on how your
             links are performing.
           </p>
-          <a href='/' className={'hero__cta'}>
-            get started
-          </a>
+          <div>
+            <a href='/' className={'hero__cta'}>
+              get started
+            </a>
+          </div>
         </div>
       </div>
     </section>
