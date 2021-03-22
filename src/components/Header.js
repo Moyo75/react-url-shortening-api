@@ -13,7 +13,7 @@ const Header = () => {
         className={'container flex flex__jc-sb flex__ai-fs'}
       >
         <a href='/' className={'header__logo'}>
-          <img src={logo} alt={'logo'} />
+          <img loading={'lazy'} src={logo} alt={'logo'} />
         </a>
 
         <div

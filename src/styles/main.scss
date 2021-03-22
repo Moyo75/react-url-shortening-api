@@ -6,8 +6,8 @@
 @import 'mixins';
 @import 'globals';
 @import 'header';
-@import 'hero';
+@import './hero';
 @import './formstats';
-@import './boostlinkscta';
+@import 'boostlinkscta';
 @import 'helpers';
-@import './footer';
+@import 'footer';

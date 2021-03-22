@@ -4,10 +4,14 @@
   padding-bottom: 5rem;
   background-image: url('../images/bg-boost-mobile.svg');
   background-position: -16px -13px;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  @include breakpoint-up(medium) {
+  @include breakpoint-up(360px) {
     background-image: url('../images/bg-boost-desktop.svg');
     background-position: -16px 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding-top: 4rem;
     padding-bottom: 4rem;
   }

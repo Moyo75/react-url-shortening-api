@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     background-position: top right;
     border-radius: 15px;
-    width: 85.78%;
+    width: 87.9%;
     margin-top: -5rem;
     margin-bottom: 1.5rem;
 
@@ -22,7 +22,7 @@
       background-image: url('../images/bg-shorten-desktop.svg');
       max-width: 85.78%;
     }
-    @include breakpoint-between(xmedium, 1000px) {
+    @include breakpoint-between(909px, 1000px) {
       max-width: 88%;
     }
     @include breakpoint-up(1001px) {
@@ -42,7 +42,7 @@
       }
       input {
         outline: none;
-        padding: 0.8rem 4.7rem 0.8rem 0.7rem;
+        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
         border-radius: 6px;
         border: none;
         margin: 23px 25px 0px 25px;
@@ -63,6 +63,7 @@
 
         @include breakpoint-up(1000px) {
           margin: 40px 22px 0px 40px;
+          padding: 0.9rem 1.4rem 0.9rem 1.4rem;
           // width: 88%;
         }
         @include breakpoint-up(1125px) {
@@ -82,7 +83,7 @@
         margin-left: 25px;
         font-style: italic;
         color: $red;
-        margin-top: 3px;
+        margin-top: 5px;
         // margin-bottom: 11px;
         font-size: 12px;
 
@@ -113,7 +114,7 @@
         outline: none;
         font-size: 0.99rem;
         font-weight: $font-weight-heavy;
-        border-radius: 10px;
+        border-radius: 4px;
         margin: 22px 25px 23px 25px;
 
         &:hover {
@@ -126,7 +127,8 @@
         }
         @include breakpoint-up(1000px) {
           margin: 40px 40px 40px 0px;
-          // padding: 0.8rem 2.1rem;
+          padding: 1rem 1.7rem;
+          border-radius: 8px;
         }
         @include breakpoint-up(1125px) {
           margin: 50px 60px 50px 0px;
@@ -140,25 +142,63 @@
     border-radius: 10px;
     width: 85.78%;
     margin-bottom: 1rem;
+    // max-width: 63.2rem;
 
     @include breakpoint-up(medium) {
-      width: 70.78%;
+      margin-bottom: 3rem;
+      flex-direction: row;
+      border-radius: 6px;
+      justify-content: space-between;
+      padding: 0.5rem 1rem 0rem 1rem;
+      // width: 74.78%;
+    }
+
+    @include breakpoint-up(500px) {
+      max-width: 77.78%;
+    }
+    @include breakpoint-up(medium) {
+      max-width: 82.5%;
+    }
+    @include breakpoint-between(xmedium, 1200px) {
+      max-width: 88%;
+    }
+    @include breakpoint-up(1201px) {
+      max-width: 62.9rem;
     }
 
     .initial__link {
       margin: 14px 0;
       padding: 0 2.1rem 0 1.1rem;
+
+      @include breakpoint-up(xmedium) {
+        font-size: 1.1rem;
+        flex-grow: 2;
+      }
     }
 
     .link__seperator {
       height: 2px;
       background-color: #f0f1f6;
+
+      @include breakpoint-up(medium) {
+        display: none;
+      }
+    }
+
+    .short__link-button {
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+      }
     }
 
     .shortened__link {
       color: $cyan;
       padding: 0 1.1rem;
       margin-bottom: -0.01rem;
+
+      @include breakpoint-up(xmedium) {
+        font-size: 1.1rem;
+      }
     }
 
     button {
@@ -178,6 +218,11 @@
       &:focus {
         outline: none;
         border: none;
+      }
+
+      @include breakpoint-up(medium) {
+        padding: 0.5rem 1rem;
+        width: 6rem;
       }
     }
   }
@@ -223,7 +268,7 @@
       @include breakpoint-up(1024px) {
         align-items: flex-start;
         margin-right: 9px;
-        // justify-content: start;
+        justify-content: start;
         padding-left: 30px;
         font-size: 15px;
         // text-align: left;
@@ -288,18 +333,20 @@
         }
       }
 
-      &:nth-child(2)::after {
-        @include breakpoint-between(384px, 386px) {
-          top: -316px;
-        }
-        @include breakpoint-between(387px, 388px) {
-          top: -289px;
-        }
-        @include breakpoint-between(436px, 447px) {
-          top: -289px;
-        }
-        @include breakpoint-between(600px, 628px) {
-          top: -262px;
+      &:nth-child(2) {
+        &::after {
+          @include breakpoint-between(384px, 386px) {
+            top: -316px;
+          }
+          @include breakpoint-between(387px, 388px) {
+            top: -289px;
+          }
+          @include breakpoint-between(436px, 447px) {
+            top: -289px;
+          }
+          @include breakpoint-between(600px, 628px) {
+            top: -262px;
+          }
         }
         @include breakpoint-up(1024px) {
           margin-top: 6rem;

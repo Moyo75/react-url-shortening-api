@@ -132,7 +132,7 @@
       padding-left: 1rem;
       padding-right: 1rem;
       line-height: 1.7;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
 
       @include breakpoint-up(medium) {
         // font-size: 1.4rem;
@@ -158,10 +158,10 @@
     div .hero__cta {
       text-decoration: none;
       background-color: $cyan;
-      color: #fff;
-      font-size: 1.2rem;
+      color: #ebffff;
+      font-size: 1.3rem;
       font-weight: $font-weight-heavy;
-      padding: 1rem 2rem;
+      padding: 0.8rem 2.4rem;
       text-transform: capitalize;
       border-radius: 30px;
 

@@ -14,6 +14,36 @@
       align-items: flex-start;
     }
 
+    .lists__icons {
+      width: 10rem;
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 65%;
+      }
+
+      @include breakpoint-up(900px) {
+        width: 64%;
+      }
+
+      @include breakpoint-up(1000px) {
+        width: 62%;
+      }
+
+      @include breakpoint-up(1100px) {
+        width: 59%;
+      }
+
+      @include breakpoint-up(1300px) {
+        width: 59%;
+      }
+
+      // .footer__list-set:last-child {
+
+      // }
+    }
+
     h1 {
       font-size: 1.9rem;
       color: #fff;
@@ -21,26 +51,21 @@
     }
 
     .first__list {
-      @include breakpoint-up(medium) {
-        margin-left: 3rem;
+      @include breakpoint-up(1301px) {
+        margin-right: 0.7rem;
       }
     }
     .second__list {
-      @include breakpoint-up(medium) {
-        margin-left: 0.7rem;
+      @include breakpoint-up(1301px) {
+        margin-right: 1rem;
       }
     }
 
-    .footer__list-set:last-child {
-      margin-right: 1rem;
-    }
-    // .third__list {
-    //   @include breakpoint-up(medium) {
-    //     margin-right: 1rem;
-    //   }
-    // }
-
     .footer__list-set {
+      @include breakpoint-up(medium) {
+        justify-content: space-around;
+        align-items: flex-start;
+      }
       h3 {
         color: #fcfafd;
         font-size: 0.9rem;
@@ -54,12 +79,17 @@
         color: #b8b6b9;
         padding-left: 0;
         li {
-          font-size: 1rem;
+          font-size: 0.9rem;
           text-align: center;
 
-          &:hover {
-            color: $cyan;
-            cursor: pointer;
+          a {
+            color: #b8b6b9;
+            text-decoration: none;
+
+            &:hover {
+              color: $cyan;
+              cursor: pointer;
+            }
           }
 
           @include breakpoint-up(medium) {
@@ -73,29 +103,61 @@
       }
     }
     .icon__list {
-      width: 60%;
+      // width: 100%;
       margin-top: 2rem;
-
-      img {
-        @include breakpoint-up(medium) {
-          &:hover {
-            cursor: pointer;
-            filter: invert(64%) sepia(97%) saturate(337%) hue-rotate(128deg)
-              brightness(90%) contrast(95%);
-          }
-        }
-
-        &:not(:last-child) {
-          @include breakpoint-up(medium) {
-            margin-right: 1.3rem;
-          }
-        }
-      }
+      flex-direction: row;
 
       @include breakpoint-up(medium) {
         margin-top: 0;
-        width: 0;
+        max-width: 11rem;
+        // width: 15%;
+        // margin-left: 4rem;
       }
+
+      @include breakpoint-up(1300px) {
+        margin-left: 3rem;
+      }
+
+      @include breakpoint-between(800px, 1300px) {
+        flex-direction: column;
+      }
+
+      a {
+        &:not(:last-child) {
+          margin-right: 1.3rem;
+
+          @include breakpoint-up(500px) {
+            margin-right: 3rem;
+          }
+        }
+
+        @include breakpoint-between(800px, 1300px) {
+          &:not(:last-child) {
+            margin-right: 0rem;
+            margin-bottom: 1.3rem;
+          }
+        }
+
+        @include breakpoint-up(1301px) {
+          &:not(:last-child) {
+            margin-right: 1.5rem;
+          }
+        }
+
+        img {
+          color: #fff;
+          @include breakpoint-up(medium) {
+            &:hover {
+              filter: brightness(0) invert(65%) sepia(97%) saturate(337%)
+                hue-rotate(127deg) contrast(95%);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      // a {
+      // }
     }
   }
 }

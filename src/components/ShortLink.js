@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import copy from 'copy-to-clipboard';
 
 import '../utils/script';
 
@@ -8,7 +9,7 @@ const ShortLink = ({ fetchedData }) => {
   const { original_link, short_link } = fetchedData;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(short_link);
+    copy(short_link);
     setButtonText('Copied!');
     setBackgroundColor(true);
 
@@ -22,16 +23,18 @@ const ShortLink = ({ fetchedData }) => {
     <div className={'link__container flex flex__column flex__jc-c'}>
       <p className={'initial__link'}>{original_link}</p>
       <div className='link__seperator'></div>
-      <p className={'shortened__link'}>{short_link}</p>
-      {document.queryCommandSupported('copy') && (
-        <button
-          className={'copy__button'}
-          onClick={handleCopy}
-          style={{ backgroundColor: backgroundColor && '#3B3054' }}
-        >
-          {buttonText}
-        </button>
-      )}
+      <div className={'short__link-button flex flex__column '}>
+        <p className={'shortened__link'}>{short_link}</p>
+        {document.queryCommandSupported('copy') && (
+          <button
+            className={'copy__button'}
+            onClick={handleCopy}
+            style={{ backgroundColor: backgroundColor && '#3B3054' }}
+          >
+            {buttonText}
+          </button>
+        )}
+      </div>
     </div>
   );
 };

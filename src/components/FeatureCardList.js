@@ -20,7 +20,7 @@ const cardsDataList = [
   {
     imgSource: fullyCustomizable,
     headerText: 'Fully Customizable',
-    description: `Improve brand awareness and content discovrability through customizable links, superchanging audience engagement.`
+    description: `Improve brand awareness and content discoverability through customizable links, superchanging audience engagement.`
   }
 ];
 
