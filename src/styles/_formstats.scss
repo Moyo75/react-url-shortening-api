@@ -140,7 +140,7 @@
   .link__container {
     background-color: #fff;
     border-radius: 10px;
-    width: 85.78%;
+    width: 87.78%;
     margin-bottom: 1rem;
     // max-width: 63.2rem;
 
@@ -169,10 +169,19 @@
     .initial__link {
       margin: 14px 0;
       padding: 0 2.1rem 0 1.1rem;
+      &::-webkit-scrollbar-thumb {
+        background-color: $cyan;
+      }
 
       @include breakpoint-up(xmedium) {
         font-size: 1.1rem;
         flex-grow: 2;
+      }
+
+      @include breakpoint-down(medium) {
+        overflow: auto;
+        white-space: nowrap;
+        overflow-y: hidden;
       }
     }
 

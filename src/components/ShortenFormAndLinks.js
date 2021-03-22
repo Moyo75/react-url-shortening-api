@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import FadeLoader from 'react-spinners/FadeLoader';
+import MoonLoader from 'react-spinners/MoonLoader';
 import { css } from '@emotion/core';
 
 import ShortLink from './ShortLink';
@@ -7,12 +7,18 @@ import { urlRegex } from '../utils/script';
 
 const spinnerCSS = css`
   margin-top: 1rem;
+  @media (max-width: 420px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const ShortenFormAndLinks = () => {
   const [showInvalidMessage, setShowInvalidMessage] = useState(false);
   const [noInputErrorMessage, setNoInputErrorMessage] = useState(false);
+
   const [fetchedData, setFetchedData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState('');
 
   const endPoint = 'https://api.shrtco.de/v2/shorten';
@@ -74,8 +80,10 @@ const ShortenFormAndLinks = () => {
     console.table(noInput.current, invalidInput.current);
 
     if (noInput.current === false && invalidInput.current === false) {
+      setFetchedData(null);
       postUrl();
       setUrl('');
+      setLoading(true);
     }
   }
 
@@ -118,8 +126,12 @@ const ShortenFormAndLinks = () => {
           </button>
         </form>
       </div>
-      {/* <FadeLoader color={'#6ADDDD'} css={spinnerCSS} /> */}
-      {fetchedData && <ShortLink fetchedData={fetchedData} />}
+
+      {fetchedData ? (
+        <ShortLink fetchedData={fetchedData} />
+      ) : (
+        <MoonLoader color={'#6ADDDD'} css={spinnerCSS} loading={loading} />
+      )}
     </div>
   );
 };
