@@ -9,7 +9,7 @@ const ShortLink = ({ fetchedData }) => {
   const { original_link, short_link } = fetchedData;
 
   const handleCopy = () => {
-    copy(short_link);
+    copy(short_link, { format: 'text/plain' });
     setButtonText('Copied!');
     setBackgroundColor(true);
 

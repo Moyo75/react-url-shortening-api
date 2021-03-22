@@ -1,34 +1,52 @@
-import React, { useState } from 'react';
-import ShortLink from './ShortLink';
+import React, { useState, useRef } from 'react';
+import FadeLoader from 'react-spinners/FadeLoader';
+import { css } from '@emotion/core';
 
+import ShortLink from './ShortLink';
 import { urlRegex } from '../utils/script';
+
+const spinnerCSS = css`
+  margin-top: 1rem;
+`;
 
 const ShortenFormAndLinks = () => {
   const [showInvalidMessage, setShowInvalidMessage] = useState(false);
   const [noInputErrorMessage, setNoInputErrorMessage] = useState(false);
   const [fetchedData, setFetchedData] = useState(null);
   const [url, setUrl] = useState('');
+
   const endPoint = 'https://api.shrtco.de/v2/shorten';
+
+  const invalidInput = useRef(false);
+  const noInput = useRef(false);
 
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
-    setNoInputErrorMessage(false);
-    setShowInvalidMessage(false);
+
+    invalidInput.current = false;
+    noInput.current = false;
+
+    setNoInputErrorMessage(noInput.current);
+    setShowInvalidMessage(invalidInput.current);
   }
 
   function handleNoInput() {
     if (url === '') {
-      setNoInputErrorMessage(true);
+      noInput.current = true;
+      setNoInputErrorMessage(noInput.current);
     } else {
-      setNoInputErrorMessage(false);
+      noInput.current = false;
+      setNoInputErrorMessage(noInput.current);
     }
   }
 
   function handleInvalidLink() {
     if (urlRegex.test(url) === false) {
-      setShowInvalidMessage(true);
+      invalidInput.current = true;
+      setShowInvalidMessage(invalidInput.current);
     } else {
-      setShowInvalidMessage(false);
+      invalidInput.current = false;
+      setShowInvalidMessage(invalidInput.current);
     }
   }
 
@@ -48,17 +66,17 @@ const ShortenFormAndLinks = () => {
     event.preventDefault();
     handleNoInput();
 
-    if (url !== '') {
+    if (noInput.current === false) {
       console.log(url);
       handleInvalidLink();
     }
 
-    if (showInvalidMessage === false) {
+    console.table(noInput.current, invalidInput.current);
+
+    if (noInput.current === false && invalidInput.current === false) {
       postUrl();
       setUrl('');
     }
-
-    return;
   }
 
   return (
@@ -100,6 +118,7 @@ const ShortenFormAndLinks = () => {
           </button>
         </form>
       </div>
+      {/* <FadeLoader color={'#6ADDDD'} css={spinnerCSS} /> */}
       {fetchedData && <ShortLink fetchedData={fetchedData} />}
     </div>
   );
