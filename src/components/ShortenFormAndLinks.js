@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import MoonLoader from 'react-spinners/MoonLoader';
+import PuffLoader from 'react-spinners/PuffLoader';
 import { css } from '@emotion/core';
 
 import ShortLink from './ShortLink';
@@ -7,10 +7,6 @@ import { urlRegex } from '../utils/script';
 
 const spinnerCSS = css`
   margin-top: 1rem;
-  @media (max-width: 420px) {
-    width: 50px;
-    height: 50px;
-  }
 `;
 
 const ShortenFormAndLinks = () => {
@@ -63,8 +59,8 @@ const ShortenFormAndLinks = () => {
 
       setFetchedData(data.result);
       console.log(data.result);
-    } catch (error) {
-      console.log(error);
+    } catch (me) {
+      // If you can...🏃‍♂
     }
   };
 
@@ -130,7 +126,17 @@ const ShortenFormAndLinks = () => {
       {fetchedData ? (
         <ShortLink fetchedData={fetchedData} />
       ) : (
-        <MoonLoader color={'#6ADDDD'} css={spinnerCSS} loading={loading} />
+        <PuffLoader
+          color={'#6ADDDD'}
+          css={spinnerCSS}
+          size={
+            Math.min(window.innerWidth, document.documentElement.clientWidth) <
+            420
+              ? 40
+              : 60
+          }
+          loading={loading}
+        />
       )}
     </div>
   );

@@ -364,7 +364,19 @@
 
       &:last-child {
         &::after {
-          @include breakpoint-between(321px, 338px) {
+          @include breakpoint-down(280px) {
+            top: -455px;
+          }
+          @include breakpoint-between(281px, 287px) {
+            top: -428px;
+          }
+          @include breakpoint-between(288px, 292px) {
+            top: -401px;
+          }
+          @include breakpoint-between(293px, 324px) {
+            top: -374px;
+          }
+          @include breakpoint-between(325px, 338px) {
             top: -347px;
           }
           @include breakpoint-between(339px, 383px) {
@@ -373,10 +385,13 @@
           @include breakpoint-between(384px, 386px) {
             top: -289px;
           }
-          @include breakpoint-between(436px, 445px) {
-            top: -262px;
+          @include breakpoint-between(436px, 447px) {
+            top: -289px;
           }
-          @include breakpoint-between(446px, 599px) {
+          // @include breakpoint-between(436px, 445px) {
+          //   top: -262px;
+          // }
+          @include breakpoint-between(447px, 599px) {
             top: -262px;
           }
           @include breakpoint-between(600px, 628px) {
@@ -410,6 +425,10 @@
       h1 {
         color: $darkViolet;
         margin-top: 20px;
+
+        @include breakpoint-down(339px) {
+          text-align: center;
+        }
       }
 
       p {
