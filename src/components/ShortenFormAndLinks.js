@@ -19,36 +19,47 @@ const ShortenFormAndLinks = () => {
 
   const endPoint = 'https://api.shrtco.de/v2/shorten';
 
-  const invalidInput = useRef(false);
-  const noInput = useRef(false);
+  const invalidInput = useRef(true);
+  const noInput = useRef(true);
 
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
 
-    invalidInput.current = false;
     noInput.current = false;
-
     setNoInputErrorMessage(noInput.current);
-    setShowInvalidMessage(invalidInput.current);
+
+    // invalidInput.current = false;
+    // setShowInvalidMessage(invalidInput.current);
   }
 
-  function handleNoInput() {
-    if (url === '') {
-      noInput.current = true;
-      setNoInputErrorMessage(noInput.current);
-    } else {
+  function handleFormFocus(event) {
+    if (event.target.value) {
       noInput.current = false;
       setNoInputErrorMessage(noInput.current);
     }
   }
 
-  function handleInvalidLink() {
-    if (urlRegex.test(url) === false) {
+  function handleInvalidLink(input) {
+    if (urlRegex.test(input) === false) {
       invalidInput.current = true;
       setShowInvalidMessage(invalidInput.current);
     } else {
       invalidInput.current = false;
       setShowInvalidMessage(invalidInput.current);
+    }
+  }
+
+  function handleFormInput(event) {
+    if (event.target.value === '') {
+      noInput.current = true;
+      setNoInputErrorMessage(noInput.current);
+
+      invalidInput.current = false;
+      setShowInvalidMessage(invalidInput.current);
+    } else {
+      noInput.current = false;
+      setNoInputErrorMessage(noInput.current);
+      handleInvalidLink(event.target.value);
     }
   }
 
@@ -66,11 +77,9 @@ const ShortenFormAndLinks = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    handleNoInput();
-
-    if (noInput.current === false) {
-      console.log(url);
-      handleInvalidLink();
+    if (event.target.value === '') {
+      invalidInput.current = true;
+      setNoInputErrorMessage(invalidInput.current);
     }
 
     console.table(noInput.current, invalidInput.current);
@@ -98,6 +107,8 @@ const ShortenFormAndLinks = () => {
             <input
               type='text'
               value={url}
+              onBlur={handleFormInput}
+              onFocus={handleFormFocus}
               onChange={handleUrlInputChange}
               placeholder={'Shorten a link here...'}
               className={
@@ -114,8 +125,8 @@ const ShortenFormAndLinks = () => {
             )}
           </div>
           <button
+            type={'submit'}
             aria-label={'Shorten link'}
-            type='submit'
             className={'shorten__button'}
           >
             shorten it!
