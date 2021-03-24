@@ -32,6 +32,7 @@
     .form__error__container {
       @include breakpoint-up(medium) {
         flex-grow: 2;
+        margin-bottom: 1.2rem;
       }
     }
 
@@ -119,6 +120,11 @@
 
         &:hover {
           filter: brightness(1.05);
+        }
+
+        &:disabled {
+          cursor: default;
+          filter: brightness(0.7);
         }
 
         @include breakpoint-up(medium) {

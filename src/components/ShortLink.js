@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import copy from 'copy-to-clipboard';
 
 import '../utils/script';
+import { FetchDataContext } from './ShortenFormAndLinks';
 
-const ShortLink = ({ fetchedData }) => {
+const ShortLink = () => {
   const [buttonText, setButtonText] = useState('Copy');
   const [backgroundColor, setBackgroundColor] = useState(false);
-  const { original_link, short_link } = fetchedData;
+  const { original_link, short_link } = useContext(FetchDataContext);
 
   const handleCopy = () => {
     copy(short_link, { format: 'text/plain', debug: true });
