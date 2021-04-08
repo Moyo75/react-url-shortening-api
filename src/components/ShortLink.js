@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import copy from 'copy-to-clipboard';
+import PropTypes from 'prop-types';
 
 import '../utils/script';
 
@@ -35,6 +36,10 @@ const ShortLink = ({ fetchedData }) => {
       </div>
     </div>
   );
+};
+
+ShortLink.propTypes = {
+  fetchedData: PropTypes.object
 };
 
 export default ShortLink;

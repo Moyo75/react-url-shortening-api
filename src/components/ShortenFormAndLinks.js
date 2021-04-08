@@ -53,9 +53,10 @@ const ShortenFormAndLinks = () => {
 
   const postUrl = async () => {
     setFetchedData(null);
+    setDelayMessage(false);
     setLoading(true);
 
-    const requestTimeout = 15000;
+    const requestTimeout = 5000;
 
     try {
       const response = await fetchWithTimeout(`${endPoint}?url=${url}`, {
@@ -68,9 +69,6 @@ const ShortenFormAndLinks = () => {
     } catch (error) {
       if (error.name === 'AbortError') {
         setDelayMessage(true);
-        setTimeout(() => {
-          setDelayMessage(false);
-        }, 5000);
       }
     }
 
