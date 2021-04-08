@@ -25,15 +25,13 @@ const ShortLink = ({ fetchedData }) => {
       <div className='link__seperator'></div>
       <div className={'short__link-button flex flex__column '}>
         <p className={'shortened__link'}>{short_link}</p>
-        {document.queryCommandSupported('copy') && (
-          <button
-            className={'copy__button'}
-            onClick={handleCopy}
-            style={{ backgroundColor: backgroundColor && '#3B3054' }}
-          >
-            {buttonText}
-          </button>
-        )}
+        <button
+          className={'copy__button'}
+          onClick={handleCopy}
+          style={{ backgroundColor: backgroundColor && '#3B3054' }}
+        >
+          {buttonText}
+        </button>
       </div>
     </div>
   );

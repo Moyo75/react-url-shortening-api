@@ -3,6 +3,13 @@
 
   .form__links__container {
     width: 100%;
+
+    .delay__message {
+      background-color: $red;
+      color: #fff;
+      padding: 0.3rem 1rem;
+      border-radius: 3px;
+    }
   }
 
   .form__container {

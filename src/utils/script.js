@@ -1,8 +1,6 @@
 window.onload = function () {
   const menuButton = document.querySelector('.menu-button');
   const headerMenu = document.querySelector('.header__menu');
-  // const copyButton = document.querySelector('.copy__button');
-  // const shortenedLink = document.querySelector('.shortened__link');
 
   function handleToggleMenu() {
     if (!headerMenu.classList.contains('state')) {
@@ -17,42 +15,32 @@ window.onload = function () {
       headerMenu.classList.remove('state');
     }
   }
-
-  // function handleCopyButton(event) {
-  //   event.preventDefault();
-
-  //   const selection = window.getSelection();
-  //   const range = new Range();
-  //   // console.log(range);
-  //   range.selectNodeContents(shortenedLink);
-
-  //   selection.removeAllRanges();
-  //   selection.addRange(range);
-
-  //   try {
-  //     document.execCommand('copy');
-  //     selection.removeAllRanges();
-
-  //     copyButton.style.backgroundColor = '#3B3054';
-  //     copyButton.textContent = 'Copied!';
-
-  //     setTimeout(() => {
-  //       copyButton.style.backgroundColor = '#2ACFCF';
-  //       copyButton.textContent = 'Copy';
-  //     }, 3000);
-  //   } catch (error) {
-  //     setTimeout(() => {
-  //       copyButton.style.backgroundColor = '#f46262';
-  //       copyButton.textContent = "Can't copy, hit Ctrl+C!";
-  //     }, 2000);
-  //   }
-  // }
-
   menuButton.addEventListener('click', handleToggleMenu);
-  // copyButton.addEventListener('click', handleCopyButton);
 };
 // const urlRegex = /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i;
 const urlRegex = new RegExp(
   /^(https?|ftp|torrent|image|irc):\/\/(-\.)?([^\s/?.#-]+\.?)+(\/[^\s]*)?$/i
 );
-export { urlRegex };
+
+async function fetchWithTimeout(resource, options) {
+  const { timeout = 15000 } = options;
+
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(resource, {
+        ...options,
+        signal: controller.signal
+      });
+      resolve(response);
+    } catch (error) {
+      reject(error);
+    }
+
+    clearTimeout(id);
+  });
+}
+
+export { urlRegex, fetchWithTimeout };

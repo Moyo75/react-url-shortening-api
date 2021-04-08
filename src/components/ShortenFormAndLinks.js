@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import FadeLoader from 'react-spinners/FadeLoader';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 import { css } from '@emotion/core';
 
 import ShortLink from './ShortLink';
-import { urlRegex } from '../utils/script';
+import { urlRegex, fetchWithTimeout } from '../utils/script';
 
 const spinnerCSS = css`
   margin-top: 1rem;
@@ -12,8 +12,10 @@ const spinnerCSS = css`
 const ShortenFormAndLinks = () => {
   const [showInvalidMessage, setShowInvalidMessage] = useState(false);
   const [noInputErrorMessage, setNoInputErrorMessage] = useState(false);
+  const [delayMessage, setDelayMessage] = useState(false);
   const [fetchedData, setFetchedData] = useState(null);
   const [url, setUrl] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const endPoint = 'https://api.shrtco.de/v2/shorten';
 
@@ -22,26 +24,25 @@ const ShortenFormAndLinks = () => {
 
   function handleUrlInputChange(event) {
     setUrl(event.target.value);
-
-    invalidInput.current = false;
-    noInput.current = false;
-
-    setNoInputErrorMessage(noInput.current);
-    setShowInvalidMessage(invalidInput.current);
   }
 
-  function handleNoInput() {
-    if (url === '') {
+  function handleFormInput(event) {
+    if (event.target.value === '') {
       noInput.current = true;
+      invalidInput.current = false;
+
       setNoInputErrorMessage(noInput.current);
+      setShowInvalidMessage(invalidInput.current);
     } else {
       noInput.current = false;
       setNoInputErrorMessage(noInput.current);
+
+      handleInvalidLink(event.target.value);
     }
   }
 
-  function handleInvalidLink() {
-    if (urlRegex.test(url) === false) {
+  function handleInvalidLink(link) {
+    if (urlRegex.test(link) === false) {
       invalidInput.current = true;
       setShowInvalidMessage(invalidInput.current);
     } else {
@@ -51,31 +52,37 @@ const ShortenFormAndLinks = () => {
   }
 
   const postUrl = async () => {
+    setFetchedData(null);
+    setLoading(true);
+
+    const requestTimeout = 15000;
+
     try {
-      const response = await fetch(`${endPoint}?url=${url}`);
+      const response = await fetchWithTimeout(`${endPoint}?url=${url}`, {
+        timeout: requestTimeout
+      });
       const data = await response.json();
 
       setFetchedData(data.result);
       console.log(data.result);
     } catch (error) {
-      console.log(error);
+      if (error.name === 'AbortError') {
+        setDelayMessage(true);
+        setTimeout(() => {
+          setDelayMessage(false);
+        }, 5000);
+      }
     }
+
+    setLoading(false);
   };
 
   function handleSubmit(event) {
     event.preventDefault();
-    handleNoInput();
-
-    if (noInput.current === false) {
-      console.log(url);
-      handleInvalidLink();
-    }
-
-    console.table(noInput.current, invalidInput.current);
 
     if (noInput.current === false && invalidInput.current === false) {
-      postUrl();
       setUrl('');
+      postUrl();
     }
   }
 
@@ -95,6 +102,7 @@ const ShortenFormAndLinks = () => {
               type='text'
               value={url}
               onChange={handleUrlInputChange}
+              onBlur={handleFormInput}
               placeholder={'Shorten a link here...'}
               className={
                 noInputErrorMessage || showInvalidMessage ? 'error-case' : null
@@ -118,8 +126,21 @@ const ShortenFormAndLinks = () => {
           </button>
         </form>
       </div>
-      {/* <FadeLoader color={'#6ADDDD'} css={spinnerCSS} /> */}
-      {fetchedData && <ShortLink fetchedData={fetchedData} />}
+      {delayMessage && (
+        <span className={'delay__message'}>
+          Request took too long. Try again.
+        </span>
+      )}
+      {fetchedData ? (
+        <ShortLink fetchedData={fetchedData} />
+      ) : (
+        <ScaleLoader
+          css={spinnerCSS}
+          loading={loading}
+          color={'#6ADDDD'}
+          size={document.documentElement.clientWidth > 450 ? 50 : 40}
+        />
+      )}
     </div>
   );
 };
