@@ -56,7 +56,7 @@ const ShortenFormAndLinks = () => {
     setDelayMessage(false);
     setLoading(true);
 
-    const requestTimeout = 5000;
+    const requestTimeout = 15000;
 
     try {
       const response = await fetchWithTimeout(`${endPoint}?url=${url}`, {
