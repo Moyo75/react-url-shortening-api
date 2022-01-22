@@ -16,8 +16,11 @@
   
   # Technologies Used
   - HTML
-  - SCSS
+  - CSS
   - JavaScript (ES6)
+  - SCSS
+  - Git
+  - GitHub
   - React
   - React Hooks (useState, useRef)
   - RegExp
