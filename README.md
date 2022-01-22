@@ -8,6 +8,12 @@
   
   (https://competent-dubinsky-bb338a.netlify.app/)
   
+  # Motivation
+  Build a React application to show the following:
+  - my area of interest in the industry
+  - my technical skills
+  - my web design insterest
+  
   # Technologies Used
   - HTML
   - SCSS
@@ -17,3 +23,6 @@
   - RegExp
   - shrtcode API
   - React spinners
+  
+  # Approach
+   I started out desktop-first
