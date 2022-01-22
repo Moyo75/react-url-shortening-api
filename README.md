@@ -11,7 +11,7 @@
   # Motivation
   Build a React application to show the following:
   - my area of interest in the industry
-  - my technical skills
+  - my technical skill set
   - my web design interest
   
   # Technologies Used
