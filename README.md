@@ -12,14 +12,14 @@
   Build a React application to show the following:
   - my area of interest in the industry
   - my technical skills
-  - my web design insterest
+  - my web design interest
   
   # Technologies Used
   - HTML
   - SCSS
   - JavaScript (ES6)
   - React
-  - Hooks (useState, useRef)
+  - React Hooks (useState, useRef)
   - RegExp
   - shrtcode API
   - React spinners
