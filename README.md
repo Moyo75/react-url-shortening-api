@@ -26,7 +26,7 @@
   - RegExp
   - shrtcode API
   - React spinners
-  - 
+  
   ## Folder Structure
     |-📁public
     |-📁src
