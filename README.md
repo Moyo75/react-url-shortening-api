@@ -1,6 +1,8 @@
   # Shortly URL shortening API 
   A URL shortening landing page using React and shrtcode API.
   
+  ![image](https://user-images.githubusercontent.com/45404945/155380176-10b64023-1060-4a50-9ab8-47debd4d7515.png)
+  
   ## Overview 
   This is a project suggestion from [Frontent Mentor](https://www.frontendmentor.io/). It was a solitary project that allowed me implement an API and build something with           several real-world use cases. It was a one-month project.
   
